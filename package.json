@@ -1,0 +1,51 @@
+{
+  "name": "blog",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
+    "axios": "^1.3.1",
+    "clsx": "^1.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.8.0",
+    "redux": "^4.2.1",
+    "redux-saga": "^1.2.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.3",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.0"
+  },
+  "description": "This *assessment* is to test best pratices, coding standards, problem-solving, research & use of react. The project should be submitted within a week of receival and should be done in Nextjs. If you got into any sort of problem like time-limit please feel free to reach out with a appropriate reason.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/aominidaiki/frontend-engineer.git"
+  },
+  "author": "Subash Chand",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/aominidaiki/frontend-engineer/issues"
+  },
+  "homepage": "https://gitlab.com/aominidaiki/frontend-engineer#readme"
+}
