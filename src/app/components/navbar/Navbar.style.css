@@ -1,0 +1,26 @@
+.navbar-light .navbar-toggler-icon {
+    color: white;
+}
+
+.navbar {
+    background: rgb(166, 40, 49);
+    background: linear-gradient(
+        90deg,
+        rgba(166, 40, 49, 1) 0%,
+        rgba(215, 37, 28, 1) 43%,
+        rgba(226, 0, 255, 1) 100%
+    );
+}
+.container-fluid {
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+    font-size: 25px !important;
+    margin-left: 50px;
+    font-weight: 700;
+}
+.nav-item {
+    cursor: pointer;
+}
+.btn-outline-success {
+    margin-right: 50px;
+}

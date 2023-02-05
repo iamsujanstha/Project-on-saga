@@ -1,0 +1,27 @@
+.container {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 8rem;
+    padding: 2.5rem;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px,
+        rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 0;
+    text-transform: capitalize
+}
+
+.post-id{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(53, 53, 172);
+}
+
+p:first-letter {
+    text-transform: capitalize
+  }

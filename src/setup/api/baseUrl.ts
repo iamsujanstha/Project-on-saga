@@ -1,1 +1,1 @@
-export const api_url = "https://jsonplaceholder.typicode.com/posts"
+export const api_url = "http://localhost:3000/posts"
