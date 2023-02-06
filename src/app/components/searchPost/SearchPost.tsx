@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchPost } from "../../redux/actions";
-import "./searchQuery.css";
+import "./searchPost.css";
 
 const SearchQuery = () => {
     const [searchItem, setSearchItem] = useState<string>("");

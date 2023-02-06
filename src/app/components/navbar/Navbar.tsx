@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import "./Navbar.style.css";
+import "./navbar.css";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
-import SearchQuery from "../searchQuery/SearchQuery";
+import SearchQuery from "../searchPost/SearchPost";
 // import "flag-icon-css/css/flag-icon.min.css";
 
 const Navbar = () => {
     const { t } = useTranslation();
-    const {login} = useParams()
     const authState = localStorage.getItem("logged");
     const [logState, setLogState] = useState<any>(false);
     const navigate = useNavigate();
-
+    const {param} = useParams()
+    console.log(param)
     useEffect(() => {
         authState ? setLogState(true) : setLogState(false);
     }, [authState]);
@@ -55,86 +55,84 @@ const Navbar = () => {
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light py-3">
-            <div className="nav-container">
-          <a
-            onClick={() => {
-              navigate("/");
-            }}
-            className="navbar-brand"
-          >
-            {t("Blog_Website")}
-          </a>
-            <SearchQuery />
-            <span>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon light " />
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              {authState && (
-                <li className="nav-item">
-                  <a
-                    className="nav-link active"
-                    aria-current="page"
-                    onClick={() => {
-                      navigate("/admin/create");
-                    }}
-                  >
-                    {t("create_post")}
-                  </a>
-                </li>
-              )}
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" />
-              </li>
-            </ul>
-            <div className="dropdown me-5">
-              <button
-                className="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <GlobeIcon />
-              </button>
-              <ul
-                className="dropdown-menu"
-                aria-labelledby="dropdownMenuButton1"
-              >
-                {languages.map(({ code, name, country_code }) => (
-                  <li key={country_code}>
+                <div className="nav-container">
                     <a
-                      onClick={() => {
-                        i18next.changeLanguage(code);
-                      }}
-                      className="dropdown-item"
+                        className="navbar-brand"
+                        href="#"
+                        onClick={() => {
+                            navigate("/");
+                        }}
                     >
-                      <span
-                        className={`flag-icon flag-icon-${country_code} mx-2`}
-                      />
-                      {name}
+                        {t("Blog_Website")}
                     </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-                <button
-                    onClick={handleClick}
-                    className={`btn btn-md btn-${logState ? "secondary" : "primary"}`}
-                >
-                    {logState ? "Log out" : "Log in"}
-                </button>
-                </div>
-                </span>
+                    <SearchQuery />
+                    <span>
+                        <button
+                            className="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                        >
+                            <span className="navbar-toggler-icon light " />
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                {authState && (
+                                    <li className="nav-item">
+                                        <button
+                                            className="btn btn-md btn-warning"
+                                            aria-current="page"
+                                            onClick={() => {
+                                                navigate("/admin/create-post");
+                                            }}
+                                        >
+                                            {t("create_post")}
+                                        </button>
+                                    </li>
+                                )}
+                                <li className="nav-item">
+                                    <a className="nav-link active" aria-current="page" />
+                                </li>
+                            </ul>
+                            <div className="dropdown me-5">
+                                <button
+                                    className="btn btn-secondary dropdown-toggle"
+                                    type="button"
+                                    id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    <GlobeIcon />
+                                </button>
+                                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    {languages.map(({ code, name, country_code }) => (
+                                        <li key={country_code}>
+                                            <a
+                                                onClick={() => {
+                                                    i18next.changeLanguage(code);
+                                                }}
+                                                className="dropdown-item"
+                                            >
+                                                <span
+                                                    className={`flag-icon flag-icon-${country_code} mx-2`}
+                                                />
+                                                {name}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <button
+                                onClick={handleClick}
+                                className={`btn btn-md btn-${!logState ? "primary" : "secondary"}`}
+                            >
+                                {!logState ? "Log in" : "Log out"}
+                            </button>
+                        </div>
+                    </span>
                 </div>
             </nav>
         </>

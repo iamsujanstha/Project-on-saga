@@ -1,5 +1,5 @@
 import React from "react";
-import "./Pagination.style.css";
+import "./Pagination.css";
 
 interface PaginationProps {
     postsPerPage: number;
@@ -20,7 +20,7 @@ const Pagination = ({ postsPerPage, totalPosts, setCurrentPage }: PaginationProp
                 {pageNumbers.map((number) => (
                     <li key={number} className=" text-center page-item">
                         <a onClick={() => setCurrentPage(number)} className="page-link">
-                            {number===1 ? 'Previous' : number === 10? 'Next' : number}
+                           {number}
                         </a>
                     </li>
                 ))}

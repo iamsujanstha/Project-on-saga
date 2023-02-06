@@ -1,19 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
 import { BiEdit } from "react-icons/bi";
 import { MdOutlineDelete } from "react-icons/md";
-import { deletePost, updatePost } from "../../../redux/actions";
+import { deletePost, fetchAllPosts, updatePost } from "../../../redux/actions";
 import { useTranslation } from "react-i18next";
 import "./posts.css";
+import ConfirmationModel from "../../../../common/modal/ConfirmationModal";
+import { useDispatch } from "react-redux";
 
 interface PostsProps {
     posts: any;
 }
 const Posts = ({ posts }: PostsProps) => {
     const authState = localStorage.getItem("logged");
+    const [showModal, setShowModal] = useState<boolean>(false);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const { t } = useTranslation();
+
+    const handleClose = () => {
+        setShowModal(false);
+    };
+
+    const handleDelete = (id: number) => {
+        setShowModal(true);
+        handleApprove(id)
+    };
+
+    const handleUpdate = (id:number)=>{
+        navigate(`/admin/edit-post/${id}`)
+    }
+
+    const handleApprove = (id: number) => {
+        dispatch(deletePost(id));
+        navigate("/");
+        setShowModal(false);
+    };
     return (
         <div className="all-posts">
             <Helmet>
@@ -30,22 +53,14 @@ const Posts = ({ posts }: PostsProps) => {
                     {authState && (
                         <div className="btn-group">
                             <div className="icon-btn">
-                                <button
-                                    onClick={() => {
-                                        updatePost(post.id);
-                                        navigate(`/admin/edit/${post.id}`);
-                                    }}
-                                    className="btn btn-success btn-sm"
-                                >
+                                <button className="btn btn-success btn-sm" onClick={()=>handleUpdate(post.id)}>
                                     <BiEdit size={20} /> {t("Edit")}
                                 </button>
                             </div>
                             <div className="icon-btn">
                                 <button
-                                    onClick={() => {
-                                        deletePost(post.id);
-                                    }}
                                     className="btn btn-danger btn-sm"
+                                    onClick={() => handleDelete(post.id)}
                                 >
                                     <MdOutlineDelete size={20} />
                                     {t("Delete")}
@@ -55,6 +70,14 @@ const Posts = ({ posts }: PostsProps) => {
                     )}
                 </div>
             ))}
+            {showModal && (
+                <ConfirmationModel
+                    showModalAction={showModal}
+                    customMessage={"Do you want to delete this post?"}
+                    handleCloseModalAction={handleClose}
+                    handleApproveRejectAction={handleApprove}
+                />
+            )}
         </div>
     );
 };

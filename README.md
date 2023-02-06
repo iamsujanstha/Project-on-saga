@@ -4,29 +4,20 @@
 
 Clone this project to your local environment through git clone.
 
-## Available Scripts
+## Follow these below instructions to install App.
 
-In the project directory,
+# STEP 1: `npm install` [To install Node modules]
 
-## `npm install`
+# STEP 2: `npm i json-server` [To Install JSON Server]
 
-Install all the dependencies in the project.
-
-# `npm i json-server`
+# STEP 3: `json-server --watch db.json` [To Start JSON Server]
 
 First of all run this command to run the json-server locally. If fetches the data from "db.json" file.
 Open [http://localhost:3000/posts] to check if it is running.
 
-TO RUN APP
+Open next terminal
 
-## `npm run dev`
-
-• Open the next terminal and run npm start.\
-• It runs the project in development mode.\
-• Then Open [http://localhost:3000] to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## STEP 4: `npm run dev` [TO start App]
 
 ## Usage
 
@@ -38,8 +29,8 @@ You may also see any lint errors in the console.
 
 ## Features of App
 
-An admin user can login to the website and create / update / delete a post. Logged status and language details gets saved to localstorage.
-When user hits authenticated routes then the user redirects to 401 page.\
-Non existing routes are redirected to 404 page.
-translation feature lets user switch between english & nepali.
-Every page have dynamic meta title & description.
+• An admin user can login to the website and create / update / delete a post. Logged status and language details gets saved to localstorage.
+• When user hits authenticated routes then the user redirects to 401 page.
+• Non existing routes are redirected to 404 page.
+• Translation feature lets user switch between english & nepali.
+• Every page have dynamic meta title & description.

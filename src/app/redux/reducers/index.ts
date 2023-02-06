@@ -4,12 +4,12 @@ import {
     SEARCH_POST_SUCCEED,
     UPDATE_POST_SUCCEED,
     DELETE_POST_SUCCEED,
+    CREATE_POST_SUCCEED,
 } from "../types";
 
 const INITIAL_STATE = {
     posts: [],
     post: [],
-    searchedPos: [],
 };
 
 export const postReducer = (state = INITIAL_STATE, action: any) => {
@@ -31,9 +31,15 @@ export const postReducer = (state = INITIAL_STATE, action: any) => {
                 posts: action.payload,
             };
 
+        case CREATE_POST_SUCCEED:
+            return {
+                ...state,
+                posts: [...state.posts, action.payload],
+            };
         case UPDATE_POST_SUCCEED:
             return {
                 ...state,
+                posts: state.posts.map((post)=>post.id === action.payload? action.payload: post)
             };
 
         case DELETE_POST_SUCCEED:

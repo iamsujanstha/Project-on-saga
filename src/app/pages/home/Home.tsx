@@ -31,7 +31,7 @@ const Home = () => {
             </Helmet>
             <div className=" mt-3">
                 <h1 className="blog mb-3">{t("All Posts")}</h1>
-                <h3 className="sub-blog mb-5">{t("Latest news posts")}</h3>
+                <h3 className="sub-blog mb-5 d-flex justify-content-center">{t("Latest news posts")}</h3>
                 <div className="">
                     <div className="blog_wrapper">
                         <Posts posts={currentPosts} />

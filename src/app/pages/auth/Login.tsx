@@ -39,7 +39,7 @@ const Login = () => {
             <form className="mt-5" onSubmit={handleSubmit}>
                 <h1 className="h3 mb-3 font-weight-normal">{t("Please Sign In")}</h1>
                 <div className="mb-3">
-                    <label className="form-label" htmlFor="emailAddress">
+                    <label className="form-label" htmlFor="email">
                         {t("Email address")}
                     </label>
                     <input
@@ -47,17 +47,19 @@ const Login = () => {
                         onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
                         name="email"
                         type="text"
+                        id="email"
                         value={loginData.email}
                         placeholder="Email Address"
                     />
                 </div>
                 <div className="mb-3">
-                    <label className="sr-only" htmlFor="">
+                    <label className="form-label" htmlFor="password">
                         {t("Password")}
                     </label>
                     <input
                         name="password"
                         type="password"
+                        id="password"
                         value={loginData.password}
                         placeholder="Enter Password"
                         className="form-control"

@@ -1,10 +1,19 @@
 import axios from "axios";
-import { put, call, takeLatest } from "redux-saga/effects";
+import { put, call, takeLatest, all } from "redux-saga/effects";
 import { fetchError, fetchStart, fetchSuccess } from "../../../common/redux/actions/common";
 import { api_url } from "../../../setup/api/baseUrl";
-import { fetchAllPostsSucceed, fetchSinglePostSucceed, searchPostSucceed } from "../actions";
+import {
+    createPostSucceed,
+    deletePostSucceed,
+    fetchAllPosts,
+    fetchAllPostsSucceed,
+    fetchSinglePostSucceed,
+    searchPostSucceed,
+    updatePostSucceed,
+} from "../actions";
 import {
     CREATE_POST_REQUEST,
+    DELETE_POST_REQUEST,
     FETCH_POSTS_REQUEST,
     FETCH_SINGLE_POST_REQUEST,
     SEARCH_POST_REQUEST,
@@ -25,30 +34,62 @@ function fetchSinglePostApi(payload: any) {
     });
 }
 
-function createPostApi() {
-    return axios.post(api_url).then((response) => {
-        return;
+function createPostApi(payload: any) {
+    return axios.post(api_url, payload).then((response) => {
+        return response.data;
     });
 }
 
 function searchPostApi(payload: any) {
-    const {title} = payload
-    console.log("Payload", payload)
-    console.log("Title", title)
-    const url = `${api_url}?q=${payload}`;
+    const title = payload;
+    const url = `${api_url}?q=${title}`;
     return axios.get(url).then((response) => {
         return response.data;
     });
 }
 
-export function* createPostSaga(): any {
-    yield put(fetchStart());
+function deletePostApi({ payload }: any) {
+    const id = payload;
+    return axios.delete(`${api_url}/${id}`).then((response) => {
+        return response.data;
+    });
+}
+
+function updatePostApi({ id, ...data }: any) {
+    return axios.patch(`${api_url}/${id}`, data).then((response) => {
+        return response.data;
+    });
+}
+
+export function* updatePostSaga(payload: any): any {
     try {
-        const response = yield call(createPostApi);
+        const reponse = yield call(updatePostApi, payload);
+        if (!reponse.error) {
+            yield put(updatePostSucceed(reponse));
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export function* deletePostSaga(payload: any): any {
+    try {
+        const response = yield call(deletePostApi, payload);
         if (!response.error) {
-            console.log("response");
+            yield all([put(deletePostSucceed(response)), put(fetchAllPosts())]);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export function* createPostSaga({ payload }: any): any {
+    try {
+        const response = yield call(createPostApi, payload);
+        if (!response.error) {
+            yield put(createPostSucceed(response));
         } else {
-            console.log("Not Found");
+            yield put(fetchError());
         }
     } catch (error) {
         console.log(error);
@@ -100,4 +141,6 @@ export function* postsSaga() {
     yield takeLatest(FETCH_SINGLE_POST_REQUEST, fetchSinglePostSaga);
     yield takeLatest(CREATE_POST_REQUEST, createPostSaga);
     yield takeLatest(SEARCH_POST_REQUEST, searchPostSaga);
+    yield takeLatest(DELETE_POST_REQUEST, deletePostSaga);
+    yield takeLatest(UPDATE_POST_REQEUST, updatePostSaga);
 }
