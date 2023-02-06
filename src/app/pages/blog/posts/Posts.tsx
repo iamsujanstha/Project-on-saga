@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
 import { BiEdit } from "react-icons/bi";
 import { MdOutlineDelete } from "react-icons/md";
-import { deletePost, fetchAllPosts, updatePost } from "../../../redux/actions";
+import { deletePost, fetchAllPosts, fetchSinglePost, updatePost } from "../../../redux/actions";
 import { useTranslation } from "react-i18next";
 import "./posts.css";
 import ConfirmationModel from "../../../../common/modal/ConfirmationModal";
@@ -25,12 +25,13 @@ const Posts = ({ posts }: PostsProps) => {
 
     const handleDelete = (id: number) => {
         setShowModal(true);
-        handleApprove(id)
+        handleApprove(id);
     };
 
-    const handleUpdate = (id:number)=>{
-        navigate(`/admin/edit-post/${id}`)
-    }
+    const handleUpdate = (id: number) => {
+        navigate(`/admin/edit-post/${id}`);
+        dispatch(fetchSinglePost({ id }));
+    };
 
     const handleApprove = (id: number) => {
         dispatch(deletePost(id));
@@ -53,7 +54,10 @@ const Posts = ({ posts }: PostsProps) => {
                     {authState && (
                         <div className="btn-group">
                             <div className="icon-btn">
-                                <button className="btn btn-success btn-sm" onClick={()=>handleUpdate(post.id)}>
+                                <button
+                                    className="btn btn-success btn-sm"
+                                    onClick={() => handleUpdate(post.id)}
+                                >
                                     <BiEdit size={20} /> {t("Edit")}
                                 </button>
                             </div>

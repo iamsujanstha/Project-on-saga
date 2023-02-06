@@ -15,19 +15,17 @@ const CreatePost = () => {
 
     const post = useSelector((state: any) => state.posts.post);
 
-    console.log(post);
     const [postData, setPostData] = useState({
         title: "",
         body: "",
     });
 
-    //To populate the data after api call
+    //To populate the data
     useEffect(() => {
-        dispatch(fetchSinglePost({id}));
         if (id) {
             setPostData(post);
         }
-    }, [id]);
+    }, [post]);
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
@@ -38,7 +36,9 @@ const CreatePost = () => {
             title: "",
             body: "",
         });
-        // navigate("/");
+        setTimeout(() => {
+            navigate("/");
+        }, 400);
     };
 
     return (
@@ -69,7 +69,7 @@ const CreatePost = () => {
                             cols={50}
                         />
                         <button className="btn btn-success btn-md mt-4" type="submit">
-                            {id ? t("Edit") : t("Create")}
+                            {id ? t("Update") : t("Create")}
                         </button>
                     </div>
                 </form>

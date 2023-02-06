@@ -6,6 +6,9 @@ Clone this project to your local environment through git clone.
 
 ## Follow these below instructions to install App.
 
+```bash
+npm i
+```
 # STEP 1: `npm install` [To install Node modules]
 
 # STEP 2: `npm i json-server` [To Install JSON Server]

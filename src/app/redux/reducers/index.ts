@@ -39,7 +39,8 @@ export const postReducer = (state = INITIAL_STATE, action: any) => {
         case UPDATE_POST_SUCCEED:
             return {
                 ...state,
-                posts: state.posts.map((post)=>post.id === action.payload? action.payload: post)
+                // posts: state.posts.map((post)=>post.id === action.payload? action.payload: post)
+                posts: action.payload
             };
 
         case DELETE_POST_SUCCEED:

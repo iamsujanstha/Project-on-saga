@@ -56,7 +56,7 @@ function deletePostApi({ payload }: any) {
 }
 
 function updatePostApi({ id, ...data }: any) {
-    return axios.patch(`${api_url}/${id}`, data).then((response) => {
+    return axios.put(`${api_url}/${id}`, data).then((response) => {
         return response.data;
     });
 }
