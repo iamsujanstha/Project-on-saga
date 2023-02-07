@@ -31,14 +31,14 @@ npm run dev
 
 • A non-admin user can see 10 posts per page.\
 • They can click and view the post in detail.\
-• Admin can login to the side through login button by putting email as ["admin123@admin.com"] and password as ["admin321"] .\
+• Admin can login to the side through login button by putting email as ["admin123@gmail.com"] and password as ["admin321"] .\
 • Admin can edit and delete the post after succesful login.\
-• Admin can create the new post through "/admin/create" route.\
+• Admin can create the new post through "/admin/create-post" route.
 
 ## Features of App
 
 • An admin user can login to the website and create / update / delete a post. Logged status and language details gets saved to localstorage.\
 • When user hits authenticated routes then the user redirects to 401 page.\
 • Non existing routes are redirected to 404 page.\
-• Translation feature lets user switch between english & nepali.\
-• Every page have dynamic meta title & description.\
+• Translation feature lets user switch between English , Nepali and French.\
+• Every page have dynamic meta title & description.
