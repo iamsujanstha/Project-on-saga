@@ -1,0 +1,36 @@
+.container_wrapper {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+  padding: 3rem;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  margin-top: 8rem;
+}
+
+h1 {
+  font-size: 70px !important;
+}
+
+p {
+  font-size: 30px;
+}
+
+button {
+  border: none;
+  padding: 9px 15px;
+  color: white;
+  background-color: #27ae60;
+  border-radius: 9px;
+}
+button:hover {
+  color: #27ae60;
+  background-color: white;
+}

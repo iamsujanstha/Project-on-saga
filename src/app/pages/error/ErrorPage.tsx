@@ -1,5 +1,5 @@
 import React from "react";
-import "./ErrorPage.style.css";
+import "./errorPage.css";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
@@ -17,18 +17,18 @@ const ErrorPage = () => {
           content="Error Page"
         />
       </Helmet>
-      <div className="edit_form">
-        <h1>404</h1>
-        <p>Page not found</p>
-        <button
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          {t("Back to homepage")}
-        </button>
+        <div className="error">
+          <h1>404</h1>
+          <p>{t("Page_not_found")}</p>
+          <button className="btn btn-success"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            {t("Back_to_homepage")}
+          </button>
+        </div>
       </div>
-    </div>
   );
 };
 

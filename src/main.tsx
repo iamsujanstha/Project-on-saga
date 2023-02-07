@@ -10,26 +10,27 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import "./App.scss";
 
 i18next
-    .use(HttpApi)
-    .use(LanguageDetector)
-    .use(initReactI18next)
-    .init({
-        supportedLngs: ["en", "np"],
-        fallbackLng: "np",
-        debug: false,
-        // Options for language detector
-        detection: {
-            order: ["path", "cookie", "htmlTag"],
-            caches: ["cookie"],
-        },
+  .use(HttpApi)
+  .use(initReactI18next)
+  .use(LanguageDetector)
+  .init({
+    fallbackLng: "en",
+    supportedLngs: ["en", "np", "fr"],
+    debug: false,
+    // Options for language detector
+    detection: {
+      order: ["path", "cookie", "htmlTag", "localStorage"],
+      caches: ["cookie"],
+    },
 
-        backend: {
-            loadPath: "/assets/locales/{{lng}}/translation.json",
-        },
-    });
+    backend: {
+      loadPath: "/src/assets/i18n/{{lng}}/translation.json",
+    },
+    react: { useSuspense: false },
+  });
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-    <Provider store={store}>
-        <App />
-    </Provider>
+  <Provider store={store}>
+    <App />
+  </Provider>
 );

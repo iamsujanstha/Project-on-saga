@@ -39,3 +39,12 @@
     margin-top: 30px;
   }
   
+  .pwd-input{
+    position: relative;
+  }
+
+  .pwd-input i{
+    position: absolute;
+    top: 12px;
+    right: 10px;
+  }

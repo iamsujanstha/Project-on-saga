@@ -6,7 +6,7 @@ interface props {
     showModalAction: boolean;
     handleCloseModalAction: Function;
     handleApproveRejectAction: Function;
-    customMessage?: string;
+    customMessage: string;
 }
 const ConfirmationModel = ({
     showModalAction,

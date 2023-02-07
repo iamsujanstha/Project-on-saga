@@ -1,7 +1,8 @@
 {
-  "login_button": "एड्मिन लगइन",
-  "logout_button": "लग आउट",
+  "login": "एड्मिन लगइन",
+  "logout": "लग आउट",
   "create_post": "पोस्ट गर्नुहोस्",
+  "post_id": "ब्लग आईडी",
 
   "language": "भाषा",
   "Blog_Website": "ब्लग वेबसाइट",
@@ -9,8 +10,8 @@
   "Blog_all_news": "सबै नवीनतम समाचार र सामग्री ।",
   "Delete": "हटाउनुहोस्",
   "Edit": "सम्पादन",
-  "Edit_blog": "ब्लग सम्पादन",
-  "Email address": "इ - मेल ठेगाना",
+  "Edit_post": "ब्लग सम्पादन",
+  "Email_address": "इ - मेल ठेगाना",
   "Password": "पासवर्ड",
   "Login": "लगइन",
   "Title": "शीर्षक",
@@ -18,8 +19,13 @@
   "Submit": "पेश गर्नुहोस्",
   "Create_Blog": "ब्लग बनाउनुहोस्",
   "Edit_your_blog": "ब्लग सम्पादन",
-  "Please Sign In": "साइन इन गर्नुहोस्",
-
+  "Search": "खोज्नुहोस्",
+  "Please_Sign_In": "साइन इन गर्नुहोस्",
   "Back_to_homepage": "गृहपृष्ठमा फर्कनुहोस्",
-  "Login_as_Admin": "लगइन गर्नुहोस्"
+  "Login_as_Admin": "लगइन गर्नुहोस्",
+  "All_posts": "सबै पोस्टहरू",
+  "Latest_news_posts": "नवीनतम समाचार पोस्टहरू",
+  "Page_not_found": "पृष्ठ फेला परेन",
+  "create": "सिर्जना गर्नुहोस्",
+  "You_need_to_be_logged_in_as_Admin": "तपाईलाई प्रशासकको रूपमा लग इन गर्न आवश्यक छ"
 }
