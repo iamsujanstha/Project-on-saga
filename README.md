@@ -12,36 +12,33 @@ npm i
 ```bash
 npm i json-server
 ```
-### Create db.json file in your root directory of App
+Create db.json file in your root directory of App
 
 ### To run JSON server
 ```bash
 json-server --watch db.json
 ```
 
-### First of all run this command to run the json-server locally. If fetches the data from "db.json" file.
-
-### Open [http://localhost:3000/posts] to check if it is running.
+First of all run this command to run the json-server locally. It fetches the data from "db.json" file.\
+Open [http://localhost:3000/posts] to check if it is running.\
 
 ### Open next terminal
-
 ### To run Application
 ```bash
 npm run dev
 ```
-
 ## Usage
 
-• A non-admin user can see 10 posts per page./
-• They can click and view the post in detail./
-• Admin can login to the side through login button by putting email as ["admin123@admin.com"] and password as ["admin321"] ./
-• Admin can edit and delete the post after succesful login./
-• Admin can create the new post through "/admin/create" route./
+• A non-admin user can see 10 posts per page.\
+• They can click and view the post in detail.\
+• Admin can login to the side through login button by putting email as ["admin123@admin.com"] and password as ["admin321"] .\
+• Admin can edit and delete the post after succesful login.\
+• Admin can create the new post through "/admin/create" route.\
 
 ## Features of App
 
-• An admin user can login to the website and create / update / delete a post. Logged status and language details gets saved to localstorage./
-• When user hits authenticated routes then the user redirects to 401 page./
-• Non existing routes are redirected to 404 page./
-• Translation feature lets user switch between english & nepali./
-• Every page have dynamic meta title & description./
+• An admin user can login to the website and create / update / delete a post. Logged status and language details gets saved to localstorage.\
+• When user hits authenticated routes then the user redirects to 401 page.\
+• Non existing routes are redirected to 404 page.\
+• Translation feature lets user switch between english & nepali.\
+• Every page have dynamic meta title & description.\
